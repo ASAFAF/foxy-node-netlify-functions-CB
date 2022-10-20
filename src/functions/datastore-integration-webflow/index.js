@@ -270,7 +270,8 @@ function isPriceCorrect(comparable) {
   const wfItem = comparable.wfItem;
   const fxItem = comparable.fxItem;
   if (
-    !fxItem // an item with no matched item is not to be checked
+    getCustomKey('price') === "false" || !fxItem 
+    // an item with no matched item is not to be checked
     || customOptions().skip.price.indexOf(iGet(wfItem, getCustomKey('code'))) >=0 //  items with price set to be skipped are not to be checked
   ) {
     return true;
